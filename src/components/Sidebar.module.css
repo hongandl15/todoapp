@@ -1,0 +1,42 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 250px; /* Adjust the width as needed */
+    height: 100vh;
+    background-color: #333; /* Change the background color as needed */
+    color: #fff; /* Change the text color as needed */
+    padding: 20px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: #555; /* Change the hover background color as needed */
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    margin-left: 250px; /* Set the same width as the sidebar */
+    padding: 20px;
+  }
+  
+  /* Responsive Styles for small screens */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      margin-bottom: 20px;
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  }
+  

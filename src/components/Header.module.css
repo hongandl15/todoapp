@@ -1,0 +1,7 @@
+.Header{
+    max-height: 1.5rem;
+    background-color: rgb(68, 68, 219);
+    text-align: center;
+    line-height: 0.2rem;
+    padding: 20px;
+}

@@ -1,12 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Todo = ({todo, onToggle}) => {
-    return( 
+const Todo = ({ todo, onClick }) => {
+    return (
         <li
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-            onClick={onToggle}
+        // style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+        // onClick={onClick}
+        >
+            <NavLink
+                to={`/tasks/${todo.id}`}
             >
-            {todo.text}
+                {todo.task}
+            </NavLink>
+            
         </li>
     );
 }
