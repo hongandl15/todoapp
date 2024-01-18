@@ -1,0 +1,5 @@
+.mainSection{
+    flex: 1;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
