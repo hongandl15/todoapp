@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useDispatch, useSelector } from "react-redux";
 import {loadTasks, deleteTask} from '../store/actions'
 import Todo from './Todo';
-
+import AddTodo from './AddTodo';
  
 const TodoApp = () => {
 
@@ -20,10 +20,9 @@ const TodoApp = () => {
               <p>Loading...</p>
           ) : (
               <div>
+                 <AddTodo/>
                   {tasks.map((task) => (
                     <Todo key={task.id} todo={task} onClick={ () => dispatch(deleteTask(task))}/>
-                        
-                     // <p key={task.id}>{task.task}</p>
                   ))}
               </div>
           )}
