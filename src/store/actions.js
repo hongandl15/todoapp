@@ -35,12 +35,3 @@ import {apiRequested, getTasks, apiRequestFailed, removeTask, addTask, completed
           method: "DELETE",
           onSuccess: removeTask.type,
       });
-
-
-    export const getTaskByIdAsync = (taskId) =>
-        apiCallBegan({
-            url: `${url}/${taskId}`,
-            onStart: apiRequested.type,
-            onSuccess: getTaskById.type,
-            onError: apiRequestFailed.type,
-    });

@@ -1,5 +1,5 @@
 // reducers.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     tasks: [],
@@ -38,21 +38,15 @@ const taskSlice = createSlice({
             );
 
             state.tasks = [
-                ...state.tasks.slice(0, index), // elements before the updated task
-                { ...state.tasks[index], task: action.payload.task }, // updated task
-                ...state.tasks.slice(index + 1), // elements after the updated task
+                ...state.tasks.slice(0, index), 
+                { 
+                    ...state.tasks[index], 
+                    task: action.payload.task, 
+                    isCompleted: action.payload.isCompleted,
+                    isImportant: action.payload.isImportant
+                }, // updated task
+                ...state.tasks.slice(index + 1), 
             ];
-        },
-        getTaskById: (state, action) => {
-            const taskId = action.payload;
-            const task = state.tasks.find((task) => task.id === taskId);
-
-            if (task) {
-                state.selectedTask = task;
-            } else {
-                // If task with given ID is not found, you can handle it accordingly
-                console.error(`Task with ID ${taskId} not found.`);
-            }
         },
     },
 });
