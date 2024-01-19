@@ -1,6 +1,6 @@
 // actions.js
 import { apiCallBegan } from "./api";
-import {apiRequested, getTasks, apiRequestFailed, removeTask} from "./reducer"
+import {apiRequested, getTasks, apiRequestFailed, removeTask, addTask, completedTask} from "./reducer"
 
   const url = "/tasks";
   export const loadTasks = () =>
@@ -23,7 +23,7 @@ import {apiRequested, getTasks, apiRequestFailed, removeTask} from "./reducer"
       apiCallBegan({
           // /tasks/6
           url: `${url}/${task.id}`,
-          method: "PATCH",
+          method: "PUT",
           data: task,
           onSuccess: completedTask.type,
       });
@@ -35,3 +35,12 @@ import {apiRequested, getTasks, apiRequestFailed, removeTask} from "./reducer"
           method: "DELETE",
           onSuccess: removeTask.type,
       });
+
+
+    export const getTaskByIdAsync = (taskId) =>
+        apiCallBegan({
+            url: `${url}/${taskId}`,
+            onStart: apiRequested.type,
+            onSuccess: getTaskById.type,
+            onError: apiRequestFailed.type,
+    });
