@@ -10,14 +10,13 @@ const TodoDetail = ({taskId}) => {
 
     const dispatch = useDispatch();
 
-
     const handleEditToggle = () => {
         setIsEdit((prevIsEdit) => !prevIsEdit);
       };
 
     const editSave = () => {
         dispatch(updateCompleted(task));
-        setIsEdit((prevIsEdit) => !prevIsEdit);
+        handleEditToggle();
     };
 
     const handleInputChange = (e) => {
@@ -28,7 +27,6 @@ const TodoDetail = ({taskId}) => {
           };
         });
       };
-
 
     async function loadTask(taskId) {
       try {
@@ -65,6 +63,8 @@ const TodoDetail = ({taskId}) => {
     return (
         <div>
             <h1>Id: {task.id}</h1>
+            <h1>isComplete: {task.isCompleted ? "complete" : "uncompleted"}</h1>
+            <h1>isImportant: {task.isImportant ? "important" : "unimportant"}</h1>
             {isEdit ? (
                 <div>
                     <input type='text' onChange={handleInputChange} defaultValue={task.task} />
