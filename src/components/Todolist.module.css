@@ -8,3 +8,9 @@
     transform: rotateX(-90deg);
     transition: all 0.1s cubic-bezier(.36,-0.64,.34,1.76);
 }
+
+.title{
+    font-size: 25px;
+    margin: 20px;
+    color: rgb(116, 116, 247);
+}

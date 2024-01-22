@@ -1,5 +1,8 @@
 .mainSection{
+    overflow: scroll;
+    max-height: 100vh;
     flex: 1;
     padding: 20px;
     width: calc(100% - 250px);
+    background-color: #f3f2f1;
 }

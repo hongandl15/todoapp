@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNewTask } from '../store/actions';
-
+import classes from './AddTodo.module.css';
 const AddTodo = () => {
   const dispatch = useDispatch();
   const [taskText, setTaskText] = useState('');
@@ -25,13 +25,13 @@ const AddTodo = () => {
 
   return (
     <form onSubmit={handleAddTask}>
-      <input
+      <input className={classes.addTodo}
         type="text"
         value={taskText}
         onChange={handleInputChange}
         placeholder="Add a new task"
       />
-      <button type="submit">Add Task</button>
+      <button className={classes.addBtn}  type="submit">Add Task</button>
     </form>
   );
 };

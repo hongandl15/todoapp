@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './Home.module.css';
-import TodoApp from '../components/TodoApp';
+import TodoList from '../components/TodoList';
 const Home = () => {
     return( 
         <div className={classes.mainSection}>
-            <TodoApp/>
+            <TodoList/>
         </div>
     );
 }
