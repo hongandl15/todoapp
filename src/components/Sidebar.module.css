@@ -19,12 +19,16 @@
   }
   
   .sidebar a:hover {
-    background-color: #c0c0c0;
+    background-color: rgb(230, 230, 230);
   }
 
   .main-content {
     margin-left: 250px;
     padding: 20px;
+  }
+
+  .active{
+    background-color: rgb(230, 230, 230);
   }
   
   @media (max-width: 768px) {

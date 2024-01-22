@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { updateCompleted, deleteTask } from '../store/actions';
 import classes from './ContextMenu.module.css';
+import { CiTrash } from "react-icons/ci";
 const ContextMenu = ({ x, y, onClose, task}) => {
     const [Task, setTask] = useState(task);
     const dispatch = useDispatch();
@@ -72,7 +73,9 @@ const ContextMenu = ({ x, y, onClose, task}) => {
                     }}></div>
                 Red Tag </div>
             <hr />
-            <div onClick={() => handleDelete()}>Delete</div>
+            <div onClick={() => handleDelete()}>
+                Delete
+            </div>
         </div>
     );
 }
