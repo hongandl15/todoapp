@@ -1,15 +1,17 @@
 /* Sidebar Styles */
 .sidebar {
-    width: 250px; /* Adjust the width as needed */
-    height: 100vh;
-    background-color: #333; /* Change the background color as needed */
-    color: #fff; /* Change the text color as needed */
-    padding: 20px;
-  }
+  width: 300px;
+  height: 100vh;
+  /* box-shadow: 0px 0.3px 0.9px rgba(0,0,0,0.1), 0px 1.6px 3.6px rgba(0,0,0,0.1);  */
+  box-shadow: 0px 1.6px 2.6px rgb(214, 214, 214);
+  background-color: #ffffff;
+  color: #fff; 
+  padding: 20px;
+}
   
   .sidebar a {
     text-decoration: none;
-    color: #fff;
+    color: black;
     display: block;
     padding: 10px;
     margin-bottom: 10px;
@@ -17,16 +19,14 @@
   }
   
   .sidebar a:hover {
-    background-color: #555; /* Change the hover background color as needed */
+    background-color: #c0c0c0;
   }
-  
-  /* Main Content Styles */
+
   .main-content {
-    margin-left: 250px; /* Set the same width as the sidebar */
+    margin-left: 250px;
     padding: 20px;
   }
   
-  /* Responsive Styles for small screens */
   @media (max-width: 768px) {
     .sidebar {
       width: 100%;
