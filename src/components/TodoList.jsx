@@ -72,27 +72,6 @@ const TodoList = () => {
                         ))}
                     </div>
 
-                    <div className={classes.title}>In Process</div>
-                    <div className={`${classes.fadeIn} ${isExiting ? classes.fadeInExiting : ''}`}>
-                        {tasks
-                            .filter(task => task.isCompleted)
-                            .sort((a, b) => (b.isImportant ? 1 : -1)) 
-                            .map((task) => (
-                            <Todo key={task.id} todo={task} onContextMenu={handleContextMenu}  />
-                        ))}
-                    </div>
-
-                    <div className={classes.title}>Blocked</div>
-                    <div className={`${classes.fadeIn} ${isExiting ? classes.fadeInExiting : ''}`}>
-                        {tasks
-                            .filter(task => task.isCompleted)
-                            .sort((a, b) => (b.isImportant ? 1 : -1)) 
-                            .map((task) => (
-                            <Todo key={task.id} todo={task} onContextMenu={handleContextMenu}  />
-                        ))}
-                    </div>
-                    
-
                     {contextMenu.visible && (
                      <ContextMenu x={contextMenu.x} y={contextMenu.y} onClose={closeContextMenu} task={contextMenu.task} />
             )}
