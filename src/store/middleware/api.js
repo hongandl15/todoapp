@@ -11,8 +11,6 @@ const api =
 
         if (onStart) dispatch({ type: onStart });
 
-        // dispatch({ type: onSuccess});
-
         try {
                 const response = await axios.request({
                     baseURL: "https://65a7949394c2c5762da704b3.mockapi.io",

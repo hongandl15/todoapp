@@ -7,6 +7,7 @@ import Todo from './Todo';
 import AddTodo from './AddTodo';
 import classes from './TodoList.module.css';
 import ContextMenu from './ContextMenu';
+import { FaTasks } from "react-icons/fa";
 const TodoList = () => {
     const { tasks, loading } = useSelector((state) => state.tasks);
     const dispatch = useDispatch();
@@ -40,6 +41,10 @@ const TodoList = () => {
                 <p>Loading...</p>
             ) : (
                 <>
+
+                    <div className={classes.title} style={{color: '#000000', fontWeight: 'bold', lineHeight:'25px'}}>
+                        <FaTasks style={{marginRight: '20px'}}/>
+                    </div>    
                     <AddTodo />
                     <div className={classes.title}>Uncompleted</div>
                     <div className={`${classes.fadeIn} ${isExiting ? classes.fadeInExiting : ''}`}>
@@ -66,6 +71,27 @@ const TodoList = () => {
                             <Todo key={task.id} todo={task} onContextMenu={handleContextMenu}  />
                         ))}
                     </div>
+
+                    <div className={classes.title}>In Process</div>
+                    <div className={`${classes.fadeIn} ${isExiting ? classes.fadeInExiting : ''}`}>
+                        {tasks
+                            .filter(task => task.isCompleted)
+                            .sort((a, b) => (b.isImportant ? 1 : -1)) 
+                            .map((task) => (
+                            <Todo key={task.id} todo={task} onContextMenu={handleContextMenu}  />
+                        ))}
+                    </div>
+
+                    <div className={classes.title}>Blocked</div>
+                    <div className={`${classes.fadeIn} ${isExiting ? classes.fadeInExiting : ''}`}>
+                        {tasks
+                            .filter(task => task.isCompleted)
+                            .sort((a, b) => (b.isImportant ? 1 : -1)) 
+                            .map((task) => (
+                            <Todo key={task.id} todo={task} onContextMenu={handleContextMenu}  />
+                        ))}
+                    </div>
+                    
 
                     {contextMenu.visible && (
                      <ContextMenu x={contextMenu.x} y={contextMenu.y} onClose={closeContextMenu} task={contextMenu.task} />
