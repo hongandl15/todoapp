@@ -23,5 +23,14 @@ export const routes = createBrowserRouter([
         ],
       },
     ],
+
   },
+  {
+    path: '/todoapp',
+    element: <RootLayout/>,
+    errorElement: <RootLayout />,
+    children: [
+      { index: true, element: <Home /> },
+    ]
+  }
 ]);
