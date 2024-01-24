@@ -1,0 +1,52 @@
+.FilterBar{
+    display:flex;
+    background-color: rgb(183, 183, 255);
+    color: #080808;
+    padding: 10px;
+    align-items: center;
+}
+
+select {
+    appearance: none;
+    outline: 10px red;
+    border: 0;
+    box-shadow: none;
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #3d4c5a;
+    background-image: none;
+    cursor: pointer;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  .select {
+    position: relative;
+    display: flex;
+    width: 15em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+  }
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #4e7ead;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  .select:hover::after {
+    color: #f39c12;
+  }
+  
+.FilterBar label{
+    margin: 5px;
+}
+
+.FilterBar label input{
+    margin: 5px;
+}

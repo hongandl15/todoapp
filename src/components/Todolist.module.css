@@ -10,7 +10,12 @@
 }
 
 .title{
+    display: flex;
     font-size: 25px;
     margin: 20px;
     color: rgb(116, 116, 247);
+}
+
+.title:hover{
+    cursor: pointer;
 }

@@ -33,5 +33,6 @@ import {apiRequested, getTasks, apiRequestFailed, removeTask, addTask, completed
           // /tasks/6
           url: `${url}/${task.id}`,
           method: "DELETE",
+          data: task,
           onSuccess: removeTask.type,
       });
