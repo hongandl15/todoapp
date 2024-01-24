@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNewTask } from '../store/actions';
 import classes from './AddTodo.module.css';
-const AddTodo = () => {
+const AddTodo = ({isImportant}) => {
   const dispatch = useDispatch();
   const [taskText, setTaskText] = useState('');
 
@@ -17,9 +17,8 @@ const AddTodo = () => {
     if (taskText.trim() === '') {
       return;
     }
-
-    dispatch(addNewTask({task: taskText}));
-
+    
+    dispatch(addNewTask({task: taskText, isImportant: isImportant, status: 'Open'}));
     setTaskText('');
   };
 
@@ -30,6 +29,7 @@ const AddTodo = () => {
         value={taskText}
         onChange={handleInputChange}
         placeholder="Add a new task"
+        maxLength={100}
       />
       <button className={classes.addBtn}  type="submit">Add Task</button>
     </form>

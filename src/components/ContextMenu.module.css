@@ -21,3 +21,28 @@
     background-color: rgb(245, 244, 244);
     cursor: pointer;
 }
+
+
+.SubList {
+    position: absolute;
+    top: 0; 
+    left: 100%; 
+    display: inline-block; 
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: rgb(255, 247, 247);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+  }
+  
+  .SubList div {
+    width: 200px;
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .SubList div:hover {
+    border: none;
+    background-color: #d3d3d3;
+  }

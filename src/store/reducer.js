@@ -44,8 +44,9 @@ const taskSlice = createSlice({
                     task: action.payload.task, 
                     isCompleted: action.payload.isCompleted,
                     isImportant: action.payload.isImportant,
-                    color: action.payload.color
-                }, // updated task
+                    color: action.payload.color,
+                    status: action.payload.status
+                },
                 ...state.tasks.slice(index + 1), 
             ];
         },

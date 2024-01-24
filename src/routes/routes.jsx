@@ -22,6 +22,17 @@ export const routes = createBrowserRouter([
           }, 
         ],
       },
+      {
+        path: 'important',
+        children: [
+          { index: true, element: <Important /> },
+          {
+            path: ':taskId',
+            id: 'task-id-important',
+            element: <TaskDetailPage />,
+          }, 
+        ],
+      },
     ],
 
   },
