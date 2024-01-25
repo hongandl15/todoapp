@@ -6,6 +6,7 @@
     margin: 10px;
     outline: none; 
     border: solid 2px rgb(189, 187, 187);
+    background-color: rgb(240, 245, 255);
 }
 
 .addTodo:focus {

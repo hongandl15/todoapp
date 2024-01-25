@@ -32,14 +32,49 @@ const ListTasks = ({ sort, tasks, options }) => {
     const closeContextMenu = () => {
         setContextMenu({ visible: false, x: 0, y: 0, task: null });
     }
+        
+    const FilterTasks = tasks.filter(
+        task =>
+            (task.isCompleted == options.isCompleted) &&
+            (task.isImportant == options.isImportant || !options.isImportant) &&
+            (
+                options.isBlock && task.status === 'Blocked' ||
+                options.isInProgress && task.status === 'In Progress' ||
+                options.isOpen && task.status === 'Open'
+            )   &&
+            (options.searchKeyword
+                ? (task.task && task.task.toLowerCase().includes(options.searchKeyword.toLowerCase()))
+                : true
+            )
+        )
+        .sort((a, b) => {
+            if (b.isImportant !== a.isImportant) {
+                return b.isImportant ? 1 : -1;
+            }
 
+            if (options.sortBy == 'dueDate') {
+                return new Date(b.createDate) - new Date(a.createDate);
+            }
+            else if (options.sortBy == 'name') {
+                const nameA = (a.name || '').toUpperCase();
+                const nameB = (b.name || '').toUpperCase();
+
+                if (nameA < nameB) {
+                    return -1;
+                }
+                if (nameA > nameB) {
+                    return 1;
+                }
+                return 0;
+            }
+        })
 
     return (
         <>
             <div>
                 <div className={classes.title} onClick={toggleShowCompleted}>
-                    {showCompleted ? <MdKeyboardArrowDown/>: <MdKeyboardArrowRight />}
-                    {options.isCompleted ? "Completed" : "Uncompleted"}
+                    {showCompleted ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}
+                    {options.isCompleted ? "Completed (" + FilterTasks.length + ")" : "Uncompleted (" + FilterTasks.length + ")"}
                 </div>
                 <CSSTransition
                     in={showCompleted}
@@ -47,44 +82,11 @@ const ListTasks = ({ sort, tasks, options }) => {
                     classNames={{
                         enter: classesListTasks.fadeEnter,
                         exitActive: classesListTasks.fadeExit,
-                        }}
+                    }}
                     unmountOnExit
                 >
                     <div className={`${classes.fadeIn} ${isExiting ? classes.fadeInExiting : ''}`}>
-                        {tasks
-                            .filter(
-                                task => 
-                                    (task.isCompleted == options.isCompleted) && 
-                                    (task.isImportant == options.isImportant || !options.isImportant) && 
-                                    (
-                                        options.isBlock && task.status === 'Blocked' ||
-                                        options.isInProgress && task.status === 'In Progress' ||
-                                        options.isOpen && task.status === 'Open'
-                                    )
-                            )   
-                            .sort((a, b) => {
-                                if (b.isImportant !== a.isImportant) {
-                                    return b.isImportant ? 1 : -1;
-                                  }
-                                
-                                if(options.sortBy == 'dueDate'){
-                                  return new Date(b.createDate) - new Date(a.createDate);
-                                }
-                                else if (options.sortBy == 'name'){
-                                    const nameA = (a.name || '').toUpperCase();
-                                    const nameB = (b.name || '').toUpperCase();
-                            
-                                    if (nameA < nameB) {
-                                      return -1;
-                                    }
-                                    if (nameA > nameB) {
-                                      return 1;
-                                    }
-                                    return 0;
-                                }
-                            })
-                            .map(task => <Todo key={task.id} todo={task} onContextMenu={handleContextMenu} />)
-                        }
+                        {FilterTasks.map(task => <Todo key={task.id} todo={task} onContextMenu={handleContextMenu} />)}
                     </div>
                 </CSSTransition>
             </div>

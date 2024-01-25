@@ -10,6 +10,19 @@
     width: 100%;
 }
 
+.TodoName{
+    width: 50rem;
+}
+
+.TodoStatus{
+    position: relative;
+    text-align: center;
+    padding: 2px;
+    font-size: 20px;
+    width: 400px;
+    right: 0;
+}
+
 .TodoTag:hover{
     background-color: rgb(199, 199, 199);
 }
@@ -25,8 +38,8 @@
     opacity: 0.4;
 }
 
-svg:hover{
+/* svg:hover{
     cursor: pointer;
     opacity: 0.4;
-}
+} */
 

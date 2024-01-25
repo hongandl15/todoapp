@@ -10,21 +10,17 @@ const api =
         const { url, method, data, onStart, onSuccess, onError } = action.payload;
 
         if (onStart) dispatch({ type: onStart });
-        
-        try {
 
-            if(method != null && method !='POST') dispatch({ type: onSuccess, payload: data});
-            else{
+        if(method != null && method !='POST') dispatch({ type: onSuccess, payload: data});
+        try {
                 const response = await axios.request({
                     baseURL: "https://65a7949394c2c5762da704b3.mockapi.io",
                     url,
                     method,
                     data,
-                });
-                
-                dispatch({ type: onSuccess, payload: response.data });
-            }
-
+                });    
+        if(method == null || method =='POST') dispatch({ type: onSuccess, payload: response.data });
+            
         } catch (error) {
             if (onError)
                 dispatch({ type: onError, payload: { error: error.message } });

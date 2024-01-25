@@ -2,23 +2,23 @@
 .fadeEnter {
     opacity: 0;
     transform: translateY(20px); 
-    transition: transform 100ms; /* Adjust timing as needed */
+    transition: transform 100ms; 
 }
     
 .fadeExit {
     /* opacity: 0; */
-    transform: translateY(-200px); /* Adjust as needed for your animation */
-    transition: opacity 100ms, transform 100ms; /* Adjust timing as needed */
+    transform: translateY(-200px); 
+    transition: opacity 100ms, transform 100ms; 
 }
 
 .arrow-up {
-    margin-left: 3px;  /* Adjust the spacing as needed */
+    margin-left: 3px; 
     transform: rotate(180deg);
     transition: transform 300ms;
 }
   
 .arrow-down {
-    margin-left: 3px;  /* Adjust the spacing as needed */
+    margin-left: 3px;  
     transform: rotate(0deg);
     transition: transform 300ms;
 }

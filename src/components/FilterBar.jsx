@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import classes from './FilterBar.module.css';
-import { FaTasks } from "react-icons/fa";
-import { FaFilter } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
 import { IoFilter } from "react-icons/io5";
 const FilterBar = ({ onFilterChange, options }) => {
+
+    const [taskText, setTaskText] = useState('');
+
+    const handleInputChange = (e) => {
+        setTaskText(e.target.value);
+        const searchKeyword = e.target.value
+        const newOptions = {
+            searchKeyword: searchKeyword
+        };
+        console.log(newOptions)
+        onFilterChange(newOptions);
+    };
 
     const handleSortChange = (e) => {
         const selectedValue = e.target.value;
@@ -25,7 +36,16 @@ const FilterBar = ({ onFilterChange, options }) => {
     };
 
     return (
-        <div style={{ color: '#000000', fontWeight: 'bold', lineHeight: '25px', display:'flex', justifyContent:'right', alignItems:'center' }}>
+        <div style={{ color: '#000000', fontWeight: 'bold', lineHeight: '25px', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+            <FaSearch style={{ marginRight: '20px', fontSize: '40px' }} />
+                <input
+                    className={classes.searchBar}
+                    type="text"
+                    value={taskText}
+                    onChange={handleInputChange}
+                    placeholder="Search task"
+                    maxLength={100}
+                />
             <IoFilter style={{ marginRight: '20px', fontSize: '40px' }} />
             <div className={classes.FilterBar}>
                 <div className={classes.select}>

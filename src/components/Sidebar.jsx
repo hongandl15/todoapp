@@ -35,6 +35,7 @@ const Sidebar = () => {
               end
               className={isTabActive('') ? classes.active : ''}
               onClick={() => handleNavLinkClick('home')}
+              style={{display: 'flex', alignItems:'center'}}  
             >
               <IoHomeOutline className='icon'/>Home
             </NavLink>
@@ -44,6 +45,7 @@ const Sidebar = () => {
               to="/tasks"
               className={isTabActive('tasks') ? classes.active : ''}
               onClick={() => handleNavLinkClick('tasks')}
+              style={{display: 'flex', alignItems:'center'}}  
             >
               <FaTasks className='icon'/>Tasks
             </NavLink>
@@ -53,6 +55,7 @@ const Sidebar = () => {
               to="/important"
               className={isTabActive('important') ? classes.active : ''}
               onClick={() => handleNavLinkClick('important')}
+              style={{display: 'flex', alignItems:'center'}}  
             >
               <FaRegStar className='icon'/>Important
             </NavLink>
