@@ -4,6 +4,7 @@
     color: #080808;
     padding: 10px;
     align-items: center;
+    border-radius: 7px;
 }
 
 select {
@@ -18,30 +19,30 @@ select {
     background-image: none;
     cursor: pointer;
   }
-  select::-ms-expand {
-    display: none;
-  }
-  .select {
-    position: relative;
-    display: flex;
-    width: 15em;
-    height: 3em;
-    border-radius: .25em;
-    overflow: hidden;
-  }
-  .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
-    background-color: #4e7ead;
-    transition: .25s all ease;
-    pointer-events: none;
-  }
-  .select:hover::after {
-    color: #f39c12;
-  }
+select::-ms-expand {
+  display: none;
+}
+.select {
+  position: relative;
+  display: flex;
+  width: 15em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #4e7ead;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+.select:hover::after {
+  color: #f39c12;
+}
   
 .FilterBar label{
     margin: 5px;
@@ -49,4 +50,10 @@ select {
 
 .FilterBar label input{
     margin: 5px;
+}
+
+.searchBar{
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
 }

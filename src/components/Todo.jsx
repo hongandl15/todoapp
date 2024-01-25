@@ -42,9 +42,20 @@ const Todo = ({ todo, onClick, onContextMenu }) => {
                 to={`/tasks/${task.id}`}
             >
                 <div className={classes.TodoTag} style={{backgroundColor: task.color}} >
-                    <h4 style={{ textDecoration: task.isCompleted ? 'line-through' : 'none' }}>
-                        {task.task}
-                    </h4>
+                    <h4 className={classes.TodoName} 
+                        style={{ 
+                            textDecoration: task.isCompleted ? 'line-through' : 'none' 
+             
+                        }}
+                    >{task.task}</h4>
+                    <div className={classes.TodoStatus}
+                        style={{ color:
+                            task.status === 'In Progress' ? 'green' :
+                            task.status === 'Blocked' ? 'red' :
+                            task.status === 'Open' ? 'blue' :
+                            'black' // Default color for other statuses
+                          }}
+                    >{task.status}</div>
                 </div>
             </NavLink>
             <div style={{ padding: "3px", fontSize: '25px', lineHeight: '4.5rem', position: 'relative', left: '-40px' }} onClick={() => handleUpdateStatus(task.isCompleted, !task.isImportant)}>

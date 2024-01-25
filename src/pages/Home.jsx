@@ -19,13 +19,13 @@ const Home = () => {
         isOpen: true,
         isBlock: true,
         isInProgress: true,
-        sortBy: 'dueDate'
+        sortBy: 'dueDate',
+        searchKeyword: '',
     });
 
     const handleFilterChange = (newOptions) => {
         setOptions({ ...options, ...newOptions });
     };
-
 
     return( 
        

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {updateCompleted, deleteTask} from '../store/actions'
-
+import classes from './TodoDetail.module.css';
 const TodoDetail = ({taskId}) => {
     const [task, setTask] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -61,24 +61,36 @@ const TodoDetail = ({taskId}) => {
       }
 
     return (
-        <div>
+        <div className={classes.TaskDetail}>
             <h1>Id: {task.id}</h1>
-            <h1>isComplete: {task.isCompleted ? "complete" : "uncompleted"}</h1>
-            <h1>isImportant: {task.isImportant ? "important" : "unimportant"}</h1>
+            <div style={{display: 'flex', fontSize: '25px'}}>
+              <div>Status: </div>
+              <div
+               style={{ 
+                marginLeft:'10px',
+                color:
+                task.status === 'In Progress' ? 'green' :
+                task.status === 'Blocked' ? 'red' :
+                task.status === 'Open' ? 'blue' :
+                'black' // Default color for other statuses
+              }}
+              >{task.status}</div>
+        
+            </div>
             {isEdit ? (
-                <div>
+                <div className={classes.TaskDes}>
                     <input type='text' onChange={handleInputChange} defaultValue={task.task} />
                     <button onClick={(e) => editSave(e)}>Save</button>
                 </div>
             ) : (
-                <div>
-                <h1>{task.task}</h1>
-                <button onClick={handleEditToggle}>Edit</button>
+                <div className={classes.TaskDes}>
+                  <div>{task.task}</div>
+                  <button onClick={handleEditToggle}>Edit</button>
                 </div>
             )}
 
             <div>
-                <button>Back</button>
+                <button style={{marginLeft: '0px'}}>Back</button>
             </div>
 
         </div>
