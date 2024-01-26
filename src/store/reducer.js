@@ -24,6 +24,7 @@ const taskSlice = createSlice({
             state.loading = false;
         },
         addTask: (state, action) => {
+            console.log('add task')
             state.tasks.push(action.payload);
         },
         removeTask: (state, action) => {
@@ -33,21 +34,22 @@ const taskSlice = createSlice({
             state.tasks.splice(index, 1);
         },
         completedTask: (state, action) => {
+            console.log('update task')
             const index = state.tasks.findIndex(
                 (task) => task.id === action.payload.id
             );
 
             state.tasks = [
-                ...state.tasks.slice(0, index), 
-                { 
-                    ...state.tasks[index], 
-                    task: action.payload.task, 
+                ...state.tasks.slice(0, index),
+                {
+                    ...state.tasks[index],
+                    task: action.payload.task,
                     isCompleted: action.payload.isCompleted,
                     isImportant: action.payload.isImportant,
                     color: action.payload.color,
                     status: action.payload.status
                 },
-                ...state.tasks.slice(index + 1), 
+                ...state.tasks.slice(index + 1),
             ];
         },
     },

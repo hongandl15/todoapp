@@ -30,7 +30,6 @@ import {apiRequested, getTasks, apiRequestFailed, removeTask, addTask, completed
   
   export const deleteTask = (task) =>
       apiCallBegan({
-          // /tasks/6
           url: `${url}/${task.id}`,
           method: "DELETE",
           data: task,

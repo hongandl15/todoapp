@@ -1,10 +1,9 @@
 // ContextMenu.js
 import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateCompleted, deleteTask } from '../store/actions';
 import classes from './ContextMenu.module.css';
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { CiTrash } from "react-icons/ci";
 const ContextMenu = ({ x, y, onClose, task }) => {
     const [Task, setTask] = useState(task);
     const [isStatusHovered, setIsStatusHovered] = useState(false);

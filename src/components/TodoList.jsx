@@ -1,6 +1,5 @@
 // TodoApp.js
-import React, { memo, useEffect, useState } from 'react';
-import Todo from './Todo';
+import React from 'react';
 import AddTodo from './AddTodo';
 import ListTasks from './ListTasks';
 const TodoList = ({options, tasks}) => {
