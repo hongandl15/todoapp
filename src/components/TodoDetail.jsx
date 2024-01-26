@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {updateCompleted, deleteTask} from '../store/actions'
+import {updateCompleted} from '../store/actions'
+import { useNavigate } from 'react-router-dom';
 import classes from './TodoDetail.module.css';
 const TodoDetail = ({taskId}) => {
     const [task, setTask] = useState(null);
@@ -17,6 +18,12 @@ const TodoDetail = ({taskId}) => {
     const editSave = () => {
         dispatch(updateCompleted(task));
         handleEditToggle();
+    };
+
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+      navigate(-1);
     };
 
     const handleInputChange = (e) => {
@@ -42,6 +49,7 @@ const TodoDetail = ({taskId}) => {
         setLoading(false);
       }
     }
+
 
     useEffect(() => {
         loadTask(taskId);
@@ -72,7 +80,7 @@ const TodoDetail = ({taskId}) => {
                 task.status === 'In Progress' ? 'green' :
                 task.status === 'Blocked' ? 'red' :
                 task.status === 'Open' ? 'blue' :
-                'black' // Default color for other statuses
+                'black'
               }}
               >{task.status}</div>
         
@@ -90,7 +98,7 @@ const TodoDetail = ({taskId}) => {
             )}
 
             <div>
-                <button style={{marginLeft: '0px'}}>Back</button>
+                <button style={{marginLeft: '0px'}} onClick={handleBack}>Back</button>
             </div>
 
         </div>

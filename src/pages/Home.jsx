@@ -3,7 +3,7 @@ import classes from './Home.module.css';
 import TodoList from '../components/TodoList';
 import FilterBar from '../components/FilterBar';
 import { useDispatch, useSelector } from "react-redux";
-import { loadTasks, deleteTask } from '../store/actions';
+import { loadTasks} from '../store/actions';
 
 const Home = () => {
     const { tasks, loading } = useSelector((state) => state.tasks);
@@ -32,8 +32,8 @@ const Home = () => {
             <div className={classes.mainSection}>
                 <FilterBar onFilterChange={handleFilterChange} options={options} />
                 {loading ? 
-                <p>Loading...</p>:  
-                <TodoList options={options} tasks={tasks} />
+                    <p>Loading...</p>:  
+                    <TodoList options={options} tasks={tasks} />
                 }
             </div>
         )

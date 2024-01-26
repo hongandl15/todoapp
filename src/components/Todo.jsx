@@ -8,7 +8,7 @@ import { MdOutlineDone } from "react-icons/md";
 import { CiCircleCheck } from "react-icons/ci";
 
 
-const Todo = ({ todo, onClick, onContextMenu }) => {
+const Todo = ({todo, onContextMenu }) => {
     const [task, setTask] = useState(todo);
     const dispatch = useDispatch();
 
@@ -53,8 +53,8 @@ const Todo = ({ todo, onClick, onContextMenu }) => {
                             task.status === 'In Progress' ? 'green' :
                             task.status === 'Blocked' ? 'red' :
                             task.status === 'Open' ? 'blue' :
-                            'black' // Default color for other statuses
-                          }}
+                            'black' 
+                        }}
                     >{task.status}</div>
                 </div>
             </NavLink>

@@ -3,7 +3,7 @@ import classes from './Home.module.css';
 import TodoList from '../components/TodoList';
 import FilterBar from '../components/FilterBar';
 import { useDispatch, useSelector } from "react-redux";
-import { loadTasks, deleteTask } from '../store/actions';
+import { loadTasks } from '../store/actions';
 const Important = () => {
     const { tasks, loading } = useSelector((state) => state.tasks);
     const dispatch = useDispatch();

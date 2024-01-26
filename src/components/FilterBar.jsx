@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import classes from './FilterBar.module.css';
 import { FaSearch } from "react-icons/fa";
 import { IoFilter } from "react-icons/io5";
